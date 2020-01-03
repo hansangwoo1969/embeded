@@ -5,7 +5,7 @@
 
 1. 커널모듈(드라이버) 작성
 ```c
-pi@raspberrypi:~/development/drivers/sample_driver $ nano sample_driver.c
+pi@raspberrypi:~/development/drivers/dummy_driver $ nano dummy_driver.c
 ```
 ```c
 #include <linux/module.h>
@@ -55,10 +55,10 @@ MODULE_LICENSE("GPL");
 ```
 2. 커널모듈(드라이버) Makefile 작성
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ nano Makefile
+pi@raspberrypi:~/development/drivers/dummy_driver $ nano Makefile
 ```
 ```
-obj-m+=sample_driver.o
+obj-m+=dummy_driver.o
 
 all:
     make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules
@@ -67,34 +67,38 @@ clean:
 ```
 3. 커널모듈(드라이버) 빌드(컴파일)
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ make
+pi@raspberrypi:~/development/drivers/dummy_driver $ make
 ```
 4. 커널올리기
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ sudo insmod sample_driver.ko
+pi@raspberrypi:~/development/drivers/dummy_driver $ sudo insmod dummy_driver.ko
 ```
 5. 커널 로그 확인하기
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ tail /var/log/kern.log
+pi@raspberrypi:~/development/drivers/dummy_driver $ tail /var/log/kern.log
 ```
 
+
 ## [디바이스 파일]
+
 1. 디바이스 파일 생성
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ sudo mknod /dev/sample c 220 0 
-pi@raspberrypi:~/development/drivers/sample_driver $ ls -l /dev/sample
+pi@raspberrypi:~/development/drivers/dummy_driver $ sudo mknod /dev/sample c 220 0 
+pi@raspberrypi:~/development/drivers/dummy_driver $ ls -l /dev/sample
 ```
+
 2. 디바이스 파일 권한 변경
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ sudo chmod 666 /dev/sample
-pi@raspberrypi:~/development/drivers/sample_driver $ ls -l /dev/sample
+pi@raspberrypi:~/development/drivers/dummy_driver $ sudo chmod 666 /dev/sample
+pi@raspberrypi:~/development/drivers/dummy_driver $ ls -l /dev/sample
 ```
+
 
 ## [테스트 어플 작성]
 
 1. dummy_app.c소스 작성
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ nano sample_app.c
+pi@raspberrypi:~/development/drivers/dummy_driver $ nano dummy_app.c
 ```
 ```c
 #include <stdio.h>
@@ -124,15 +128,15 @@ int main(void)
 ```
 2. 컴파일 하기
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ gcc -o sample_app sample_app.c
+pi@raspberrypi:~/development/drivers/dummy_driver $ gcc -o dummy_app dummy_app.c
 ```
 
 3. 실행하기
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ ./sample_app
+pi@raspberrypi:~/development/drivers/dummy_driver $ ./dummy_app
 ```
 
 4. 커널로그 확인하기
 ```
-pi@raspberrypi:~/development/drivers/sample_driver $ tail /var/log/kern.log
+pi@raspberrypi:~/development/drivers/dummy_driver $ tail /var/log/kern.log
 ```
