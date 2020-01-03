@@ -1,5 +1,6 @@
 # 이력서
-![트와이스]('C:\Users\한국아이티교육원\Desktop\Winter\twice_v1.jpg')
+![twice_v1](https://user-images.githubusercontent.com/50130123/71701951-141caf00-2e10-11ea-9fe1-91f79f115aad.jpg)
+
 
 ## 학력란
 
