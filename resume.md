@@ -19,11 +19,30 @@
 아련한 추억이 되고,,
 ```
 ```c
-# include <stdio.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 int main(void)
 {
+    
+	
+	char buffer[1024] = {0, };
+    int fd = open("/dev/sample", O_RDWR);
+	
+	// GPIO_6 LED ON
+	buffer[0] = 1
+	write(fd, buffer, 1);
+	
+	sleep(2)
+	
+	//GPIO_6 LED OFF
+	buffer[0] = 0
+	write(fd, buffer, 1);    
+    close(fd);
+
     return 0;
 }
+
 
 ```
