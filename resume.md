@@ -1,5 +1,5 @@
 # 이력서
-![트와이스](https://social.lge.co.kr/wp-content/uploads/2017/09/twice_%EB%8C%80%EB%AC%B8.jpg)
+![트와이스](C:\Users\한국아이티교육원\Desktop\Winter\twice_v1.jpg)
 
 ## 학력란
 
